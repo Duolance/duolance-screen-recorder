@@ -7,3 +7,8 @@ node_modules/
 .DS_Store
 .vscode/
 node_modules
+
+build/
+
+yarn.lock
+package-lock.json

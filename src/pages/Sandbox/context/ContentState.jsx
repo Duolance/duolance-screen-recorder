@@ -90,7 +90,7 @@ const ContentState = (props) => {
   //   }
   // }, []);
 
-  // Generate a title based on the current time (e.g. Screenity video - Sep 4 2021 10:00 AM)
+  // Generate a title based on the current time (e.g. Duolance Screen Recorder video - Sep 4 2021 10:00 AM)
   useEffect(() => {
     const date = new Date();
     const formattedDate = date.toLocaleString("en-US", {
@@ -100,7 +100,7 @@ const ContentState = (props) => {
     });
     setContentState((prevState) => ({
       ...prevState,
-      title: `Screenity video - ${formattedDate}`,
+      title: `Duolance Screen Recorder video - ${formattedDate}`,
     }));
   }, []);
 

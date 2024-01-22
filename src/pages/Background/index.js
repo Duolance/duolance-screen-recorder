@@ -535,7 +535,7 @@ const stopRecording = async () => {
     sendChunks();
   }
 
-  chrome.action.setIcon({ path: "assets/icon-34.png" });
+  chrome.action.setIcon({ path: "assets/icon-128.png" });
 
   // Check if wasRegion is set
   const { wasRegion } = await chrome.storage.local.get(["wasRegion"]);
@@ -693,7 +693,7 @@ const handleDismiss = async () => {
   if (wasRegion) {
     chrome.storage.local.set({ wasRegion: false, region: true });
   }
-  chrome.action.setIcon({ path: "assets/icon-34.png" });
+  chrome.action.setIcon({ path: "assets/icon-128.png" });
 };
 
 const handleRestart = async () => {
@@ -1213,7 +1213,7 @@ chrome.tabs.onRemoved.addListener(async (tabId, removeInfo) => {
     }
 
     // Update icon
-    chrome.action.setIcon({ path: "assets/icon-34.png" });
+    chrome.action.setIcon({ path: "assets/icon-128.png" });
   }
   if (tabId === sandboxTab && !restarting) {
     try {
@@ -1235,7 +1235,7 @@ const discardRecording = async () => {
     }
   });
   sendMessageRecord({ type: "dismiss-recording" });
-  chrome.action.setIcon({ path: "assets/icon-34.png" });
+  chrome.action.setIcon({ path: "assets/icon-128.png" });
   discardOffscreenDocuments();
   chrome.storage.local.set({
     recordingTab: null,
@@ -1399,7 +1399,7 @@ const handleMessage = async (request, sender, sendResponse) => {
     sendMessageRecord({ type: "streaming-data", data: JSON.stringify(data) });
     return true;
   } else if (request.type === "cancel-recording") {
-    chrome.action.setIcon({ path: "assets/icon-34.png" });
+    chrome.action.setIcon({ path: "assets/icon-128.png" });
     const { activeTab } = await chrome.storage.local.get(["activeTab"]);
     // Check if actual tab
     chrome.tabs.get(activeTab, (t) => {
@@ -1507,9 +1507,9 @@ const handleMessage = async (request, sender, sendResponse) => {
     }
   } else if (request.type === "check-recording") {
     checkRecording();
-  } else if (request.type === "review-screenity") {
+  } else if (request.type === "review-duolance-screen-recorder") {
     chrome.tabs.create({
-      url: "https://chromewebstore.google.com/detail/screenity-screen-recorder/kbbdabhdfibnancpjfhlkhafgdilcnji/reviews",
+      url: "https://chromewebstore.google.com/detail/duolance-screen-recorder/ecjnnjgoifgclgbimdcjkemdclhmbahd/reviews",
       active: true,
     });
   } else if (request.type === "follow-twitter") {
@@ -1664,7 +1664,7 @@ const handleMessage = async (request, sender, sendResponse) => {
     });
   } else if (request.type === "open-home") {
     chrome.tabs.create({
-      url: "https://screenity.io/",
+      url: "https://duolance.com/",
       active: true,
     });
   } else if (request.type === "report-bug") {
